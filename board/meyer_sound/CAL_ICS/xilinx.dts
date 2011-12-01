@@ -520,12 +520,18 @@
 			reg = < 0x820b0000 0x10000 >;
 			xlnx,family = "spartan6";
 			xlnx,fifo-exist = <0x1>;
-			xlnx,num-ss-bits = <0x1>;
+			xlnx,num-ss-bits = <0x2>;
 			xlnx,num-transfer-bits = <0x8>;
 			xlnx,sck-ratio = <0x4>;
 			device@0{
 			        compatible = "spidev,spidev";
 			        reg = <0>;
+			        spi-max-frequency = <15000000>;
+			        linux,modalias = "spidev";
+			};		
+			device@1{
+			        compatible = "spidev,spidev";
+			        reg = <1>;
 			        spi-max-frequency = <15000000>;
 			        linux,modalias = "spidev";
 			};		

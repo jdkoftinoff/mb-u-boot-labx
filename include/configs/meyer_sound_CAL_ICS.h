@@ -32,6 +32,28 @@
 
 //#define CONFIG_FIRMWARE_UPDATE
 
+#ifndef CONFIG_REGULAR_MODE
+#define CONFIG_MAINTENANCE_MODE
+#endif
+#define USE_ICAP_FSL
+
+
+/* ICAP peripheral controller */
+#define FINISH_FSL_BIT (0x80000000)
+#define ICAP_FSL_FAILED (0x80000000)
+
+#define XPAR_ICAP_CR_ABORT		BIT(4)
+#define XPAR_ICAP_CR_RESET		BIT(3)
+#define XPAR_ICAP_CR_FIFO_CLEAR	BIT(2)
+#define XPAR_ICAP_CR_READ		BIT(1)
+#define XPAR_ICAP_CR_WRITE		BIT(0)
+
+#define XPAR_ICAP_SR_CFGERR		BIT(8)
+#define XPAR_ICAP_SR_DALIGN		BIT(7)
+#define XPAR_ICAP_SR_READ_IP	BIT(6)
+#define XPAR_ICAP_SR_IN_ABORT	BIT(5)
+#define XPAR_ICAP_SR_DONE		BIT(0)
+ 
 /* UARTLITE0 is used for MDM. Use UARTLITE1 for Microblaze */
 
 #define	CONFIG_XILINX_UARTLITE
@@ -151,7 +173,7 @@
 #define	CONFIG_ENV_SECT_SIZE	0x40000	 /* 256K */
 /*#define	CONFIG_ENV_ADDR		(CONFIG_SYS_FLASH_BASE + CONFIG_SYS_FLASH_SIZE - CONFIG_ENV_SECT_SIZE)      */
 #define	CONFIG_ENV_SIZE		0x08000  /* Only 32K actually allocated */
-#define CONFIG_ENV_OFFSET	0xE40000	
+#define CONFIG_ENV_OFFSET	0x7C0000	
 
 /* Enable support of SPI Flash */
 #define CONFIG_SYS_NO_FLASH

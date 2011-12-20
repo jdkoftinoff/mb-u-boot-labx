@@ -31,14 +31,14 @@
 	#address-cells = <1>;
 	#size-cells = <1>;
 	compatible = "xlnx,microblaze";
-	model = "testing";
+	model = "maintenance";
 	aliases {
 		ethernet0 = &eth0;
 		ethernet1 = &eth1;
 		serial0 = &serial_console;
 	} ;
 	chosen {
-		bootargs = "console=ttyUL0 mtdparts=spi32764.0:2048K(bootfpga),256K(boot),256K(fdt),3840K(image),2048K(rootfs),2048K(romfs),2048K(fpga),2048K(settingsfs),256K(bootenv) root=mtd4 rootfstype=romfs init=/bin/init";
+		bootargs = "console=ttyUL0 mtdparts=spi32764.0:2048K(maintfpga),256K(maintboot),256K(maintfdt),1536K(maintimage),1024K(maintrootfs),768K(maintromfs),2048K(maintsettingsfs),256K(bootenv),2048K(fpga),256K(boot),256K(fdt),1536K(image),1024K(rootfs),1024K(romfs),2048K(settingsfs) root=mtd4 rootfstype=romfs init=/bin/init";
 		linux,stdout-path = "/plb@0/serial@82020000";
 	} ;
 	cpus {
@@ -543,7 +543,7 @@
 			reg = < 0x820c0000 0x10000 >;
 			xlnx,family = "spartan6";
 			xlnx,fifo-exist = <0x1>;
-			xlnx,num-ss-bits = <0x1>;
+			xlnx,num-ss-bits = <0x2>;
 			xlnx,num-transfer-bits = <0x8>;
 			xlnx,sck-ratio = <0x4>;
 			device@0{

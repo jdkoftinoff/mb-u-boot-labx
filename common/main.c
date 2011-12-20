@@ -52,6 +52,9 @@ extern int CheckFirmwareUpdate(void);
 extern void gpio_init(int is_update);
 #endif
 
+#if defined(CONFIG_MAINTENANCE_MODE) 
+extern int CheckMaintenanceMode(void);
+#endif
 
 /*
  * Board-specific Platform code can reimplement show_boot_progress () if needed
@@ -422,6 +425,15 @@ void main_loop (void)
 		s = getenv ("bootcmd");
 
 	debug ("### main_loop: bootcmd=\"%s\"\n", s ? s : "<UNDEFINED>");
+
+
+#if defined(CONFIG_MAINTENANCE_MODE)
+  CheckMaintenanceMode();
+#endif
+	
+#if defined(CONFIG_REGULAR_MODE)
+  s = getenv("regbootcmd");
+#endif
 
 	if (bootdelay >= 0 && s && !abortboot (bootdelay)) {
 # ifdef CONFIG_AUTOBOOT_KEYED

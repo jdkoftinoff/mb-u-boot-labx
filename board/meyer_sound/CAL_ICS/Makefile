@@ -25,8 +25,9 @@ include $(TOPDIR)/config.mk
 
 LIB	= $(obj)lib$(BOARD).a
 CFLAGS	+= -I. 
-COBJS	= $(BOARD).o firmware-update.o
+COBJS	= CAL_ICS.o firmware-update.o
 COBJS	+= mvSwitch_6350R.o
+COBJS	+= maintenance-mode/maintenance-mode.o
 
 OBJS	:= $(addprefix $(obj),$(COBJS))
 

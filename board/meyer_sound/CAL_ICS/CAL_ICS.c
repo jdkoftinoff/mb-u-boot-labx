@@ -82,7 +82,7 @@ int board_eth_init(bd_t *bis)
 #endif
   returnValue = labx_eth_initialize(bis);
   
-  mdelay(5000);
+  mdelay(100);
 
   return returnValue;
 }

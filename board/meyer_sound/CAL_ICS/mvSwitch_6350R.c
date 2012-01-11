@@ -294,9 +294,9 @@ MV_VOID mvEthE6350RSwitchInit()
 	MV_U32 portIndex;
 	MV_U16 saved_g1reg4;
 	
-	mdelay(1000);
+	mdelay(10);
 	mv88e6350R_hard_reset();
-	mdelay(1000);
+	mdelay(10);
  
   REG_WRITE( 
              REG_PORT(CAL_ICS_CPU_PORT_0), 

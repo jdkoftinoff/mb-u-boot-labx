@@ -748,6 +748,7 @@ static int labx_eth_init(struct eth_device *dev, bd_t *bis)
   labx_eth_addr_setup(lp);
 
   /* Enable the receiver and transmitter */
+  labx_eth_write_mac_reg(MAC_RX_CONFIG_REG, RX_SOFT_RESET);
   labx_eth_write_mac_reg(MAC_RX_CONFIG_REG, RX_ENABLE | RX_VLAN_TAGS_ENABLE);
   labx_eth_write_mac_reg(MAC_TX_CONFIG_REG, TX_ENABLE | TX_VLAN_TAGS_ENABLE);
 

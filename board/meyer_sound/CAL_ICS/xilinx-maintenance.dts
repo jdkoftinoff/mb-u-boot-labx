@@ -38,7 +38,7 @@
 		serial0 = &serial_console;
 	} ;
 	chosen {
-		bootargs = "console=ttyUL0 mtdparts=spi32764.0:2048K(maintfpga),256K(maintboot),256K(maintfdt),1536K(maintimage),1024K(maintrootfs),768K(maintromfs),2048K(maintsettingsfs),256K(bootenv),2048K(fpga),256K(boot),256K(fdt),1536K(image),1024K(rootfs),1024K(romfs),2048K(settingsfs) root=mtd4 rootfstype=romfs init=/bin/init";
+		bootargs = "console=ttyUL0 mtdparts=spi32764.0:1536K(maintfpga),256K(maintboot),256K(maintfdt),1536K(maintimage),1024K(maintrootfs),1792K(maintromfs),1536K(maintsettingsfs),256K(bootenv),1536K(fpga),256K(boot),256K(fdt),1536K(image),1024K(rootfs),2048K(romfs),1536K(settingsfs) root=mtd4 rootfstype=romfs init=/bin/init";
 		linux,stdout-path = "/plb@0/serial@82020000";
 	} ;
 	cpus {

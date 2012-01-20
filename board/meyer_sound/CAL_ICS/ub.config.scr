@@ -13,35 +13,35 @@ echo Clobber DRAM Configuration:
 set clobstart 0x88000000
 
 echo Boot FPGA Configuration:
-set bootfpgasize 0x200000
+set bootfpgasize 0x180000
 set bootfpgastart 0x0
 set bootfpganame CAL_ICS_FPGA-failsafe.bin
 
 echo Bootloader Configuration:
 set bootsize 0x40000
-set bootstart 0x200000
+set bootstart 0x180000
 
 echo Flattened Device Tree Configuration:
 set fdtname CAL_ICS.dtb
 set fdtsize 0x40000
-set fdtstart 0x240000
+set fdtstart 0x1C0000
 
 
 echo Kernel Configuration:
 set kernsize 0x180000
-set kernstart 0x280000
+set kernstart 0x200000
 
 echo Root Filesystem Configuration:
 set rootfssize 0x100000
-set rootfsstart 0x400000
+set rootfsstart 0x380000
 
 echo ROM Filesystem Configuration:
-set romfssize 0xC0000
-set romfsstart 0x500000
+set romfssize 0x1C0000
+set romfsstart 0x480000
 
 echo Settings Filesystem Configuration:
-set settingsfssize 0x200000
-set settingsfsstart 0x5C0000
+set settingsfssize 0x180000
+set settingsfsstart 0x640000
 
 set bootenvsize 0x40000
 set bootenvstart 0x7C0000
@@ -95,34 +95,34 @@ echo Boot Configuration for Regular Mode:
 set regbootcmd 'sf probe 0:0 40000000 3;sf read ${tempkernstart} ${regkernstart} ${regkernsize};sf read ${tempfdtstart} ${regfdtstart} ${regfdtsize};bootm ${tempkernstart} - ${tempfdtstart}'
 
 echo Boot FPGA Configuration for Regular Mode:
-set regfpgasize 0x200000
+set regfpgasize 0x180000
 set regfpgastart 0x800000
 set regfpganame CAL_ICS.bin
 
 echo Bootloader Configuration for Regular Mode:
 set regbootsize 0x40000
-set regbootstart 0xA00000
+set regbootstart 0x980000
 
 echo Flattened Device Tree Configuration for Regular Mode:
 set regfdtsize 0x40000
-set regfdtstart 0xA40000
+set regfdtstart 0x9C0000
 set regfdtname REG_CAL_ICS.dtb
 
 echo Kernel Configuration for Regular Mode:
 set regkernsize 0x180000
-set regkernstart 0xA80000
+set regkernstart 0xA00000
 
 echo Root Filesystem Configuration for Regular Mode:
 set regrootfssize 0x100000
-set regrootfsstart 0xC00000
+set regrootfsstart 0xB80000
 
 echo ROM Filesystem Configuration for Regular Mode:
-set regromfssize 0x100000
-set regromfsstart 0xD00000
+set regromfssize 0x200000
+set regromfsstart 0xC80000
 
 echo Settings Filesystem Configuration for Regular Mode:
-set regsettingsfssize 0x200000
-set regsettingsfsstart 0xE00000
+set regsettingsfssize 0x180000
+set regsettingsfsstart 0xE80000
 
 set load_reg_fpga 'tftp ${clobstart} ${regfpganame}'
 set install_reg_fpga 'sf probe 0:0 40000000 3;sf erase ${regfpgastart} ${regfpgasize};sf write ${clobstart} ${regfpgastart} ${filesize}'

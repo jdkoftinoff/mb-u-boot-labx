@@ -291,22 +291,27 @@ static void mv88e6350R_hard_reset(void)
 
 MV_VOID mvEthE6350RSwitchInit()
 {
-	MV_U32 portIndex;
-	MV_U16 saved_g1reg4;
+  MV_U32 portIndex;
+  MV_U16 saved_g1reg4;
 	
-	mdelay(10);
-	mv88e6350R_hard_reset();
-	mdelay(10);
+  mdelay(10);
+  mv88e6350R_hard_reset();
+  mdelay(10);
  
-  REG_WRITE( 
-             REG_PORT(CAL_ICS_CPU_PORT_0), 
+  REG_WRITE( REG_PORT(CAL_ICS_CPU_PORT_0), 
+             PHYS_CTRL_REG,
+             CAL_ICS_CPU_PORT_0_PHYS_CTRL & ~FORCE_LINK_UP);
+
+  REG_WRITE( REG_PORT(CAL_ICS_CPU_PORT_0), 
              PHYS_CTRL_REG,
              CAL_ICS_CPU_PORT_0_PHYS_CTRL);
-
   mdelay(2); 
-                        
-	REG_WRITE( 
-             REG_PORT(CAL_ICS_CPU_PORT_1), 
+
+  REG_WRITE( REG_PORT(CAL_ICS_CPU_PORT_1), 
+             PHYS_CTRL_REG,
+             CAL_ICS_CPU_PORT_1_PHYS_CTRL & ~FORCE_LINK_UP);
+
+  REG_WRITE( REG_PORT(CAL_ICS_CPU_PORT_1), 
              PHYS_CTRL_REG,
              CAL_ICS_CPU_PORT_1_PHYS_CTRL);
 
@@ -379,3 +384,17 @@ MV_VOID mvEthE6350RSwitchInit()
 	saved_g1reg4 |= 0x4000;
 	REG_WRITE(REG_GLOBAL,0x4,saved_g1reg4);
 }
+
+int do_switch_init(cmd_tbl_t *cmdtp, int flag, int argc, char *argv[])
+{
+	printf("\nResetting the switch\n");
+
+        mvEthE6350RSwitchInit();
+
+	return 0;
+}
+U_BOOT_CMD(
+	switch_init,	1,	1,	do_switch_init,
+	"Reinitialize the MV88E6350R",
+	""
+);

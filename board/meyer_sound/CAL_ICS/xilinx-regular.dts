@@ -400,7 +400,111 @@
 			xlnx,tri-default = <0x00780002>;
 			xlnx,tri-default-2 = <0x0001FFF8>;
 		} ;
-		xps_iic_0: i2c@820a0000 {
+		xps_iic_0: dsp1@820a0000 {
+			compatible = "xlnx,xps-iic-2.03.a", "xlnx,xps-iic-2.00.a";
+			interrupt-parent = <&irq_control>;
+			interrupts = < 17 2 >;
+			reg = < 0x820a0000 0x10000 >;
+			xlnx,clk-freq = <0x3b9aca0>;
+			xlnx,family = "spartan6";
+			xlnx,gpo-width = <0x1>;
+			xlnx,iic-freq = <0x186a0>;
+			xlnx,scl-inertial-delay = <0x5>;
+			xlnx,sda-inertial-delay = <0x5>;
+			xlnx,ten-bit-adr = <0x0>;
+		} ;
+		xps_iic_1: dsp1_amp1@820a0000 {
+			compatible = "xlnx,xps-iic-2.03.a", "xlnx,xps-iic-2.00.a";
+			interrupt-parent = <&irq_control>;
+			interrupts = < 17 2 >;
+			reg = < 0x820a0000 0x10000 >;
+			xlnx,clk-freq = <0x3b9aca0>;
+			xlnx,family = "spartan6";
+			xlnx,gpo-width = <0x1>;
+			xlnx,iic-freq = <0x186a0>;
+			xlnx,scl-inertial-delay = <0x5>;
+			xlnx,sda-inertial-delay = <0x5>;
+			xlnx,ten-bit-adr = <0x0>;
+		} ;
+		xps_iic_2: dsp1_amp2@820a0000 {
+			compatible = "xlnx,xps-iic-2.03.a", "xlnx,xps-iic-2.00.a";
+			interrupt-parent = <&irq_control>;
+			interrupts = < 17 2 >;
+			reg = < 0x820a0000 0x10000 >;
+			xlnx,clk-freq = <0x3b9aca0>;
+			xlnx,family = "spartan6";
+			xlnx,gpo-width = <0x1>;
+			xlnx,iic-freq = <0x186a0>;
+			xlnx,scl-inertial-delay = <0x5>;
+			xlnx,sda-inertial-delay = <0x5>;
+			xlnx,ten-bit-adr = <0x0>;
+		} ;
+		xps_iic_3: dsp2@820a0000 {
+			compatible = "xlnx,xps-iic-2.03.a", "xlnx,xps-iic-2.00.a";
+			interrupt-parent = <&irq_control>;
+			interrupts = < 17 2 >;
+			reg = < 0x820a0000 0x10000 >;
+			xlnx,clk-freq = <0x3b9aca0>;
+			xlnx,family = "spartan6";
+			xlnx,gpo-width = <0x1>;
+			xlnx,iic-freq = <0x186a0>;
+			xlnx,scl-inertial-delay = <0x5>;
+			xlnx,sda-inertial-delay = <0x5>;
+			xlnx,ten-bit-adr = <0x0>;
+		} ;
+		xps_iic_4: dsp2_amp1@820a0000 {
+			compatible = "xlnx,xps-iic-2.03.a", "xlnx,xps-iic-2.00.a";
+			interrupt-parent = <&irq_control>;
+			interrupts = < 17 2 >;
+			reg = < 0x820a0000 0x10000 >;
+			xlnx,clk-freq = <0x3b9aca0>;
+			xlnx,family = "spartan6";
+			xlnx,gpo-width = <0x1>;
+			xlnx,iic-freq = <0x186a0>;
+			xlnx,scl-inertial-delay = <0x5>;
+			xlnx,sda-inertial-delay = <0x5>;
+			xlnx,ten-bit-adr = <0x0>;
+		} ;
+		xps_iic_5: dsp2_amp2@820a0000 {
+			compatible = "xlnx,xps-iic-2.03.a", "xlnx,xps-iic-2.00.a";
+			interrupt-parent = <&irq_control>;
+			interrupts = < 17 2 >;
+			reg = < 0x820a0000 0x10000 >;
+			xlnx,clk-freq = <0x3b9aca0>;
+			xlnx,family = "spartan6";
+			xlnx,gpo-width = <0x1>;
+			xlnx,iic-freq = <0x186a0>;
+			xlnx,scl-inertial-delay = <0x5>;
+			xlnx,sda-inertial-delay = <0x5>;
+			xlnx,ten-bit-adr = <0x0>;
+		} ;
+		xps_iic_6: dsp3@820a0000 {
+			compatible = "xlnx,xps-iic-2.03.a", "xlnx,xps-iic-2.00.a";
+			interrupt-parent = <&irq_control>;
+			interrupts = < 17 2 >;
+			reg = < 0x820a0000 0x10000 >;
+			xlnx,clk-freq = <0x3b9aca0>;
+			xlnx,family = "spartan6";
+			xlnx,gpo-width = <0x1>;
+			xlnx,iic-freq = <0x186a0>;
+			xlnx,scl-inertial-delay = <0x5>;
+			xlnx,sda-inertial-delay = <0x5>;
+			xlnx,ten-bit-adr = <0x0>;
+		} ;
+		xps_iic_7: dsp3_amp1@820a0000 {
+			compatible = "xlnx,xps-iic-2.03.a", "xlnx,xps-iic-2.00.a";
+			interrupt-parent = <&irq_control>;
+			interrupts = < 17 2 >;
+			reg = < 0x820a0000 0x10000 >;
+			xlnx,clk-freq = <0x3b9aca0>;
+			xlnx,family = "spartan6";
+			xlnx,gpo-width = <0x1>;
+			xlnx,iic-freq = <0x186a0>;
+			xlnx,scl-inertial-delay = <0x5>;
+			xlnx,sda-inertial-delay = <0x5>;
+			xlnx,ten-bit-adr = <0x0>;
+		} ;
+		xps_iic_8: dsp3_amp2@820a0000 {
 			compatible = "xlnx,xps-iic-2.03.a", "xlnx,xps-iic-2.00.a";
 			interrupt-parent = <&irq_control>;
 			interrupts = < 17 2 >;
